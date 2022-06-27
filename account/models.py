@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import UserManager, AbstractUser
 from django.core.mail import send_mail
-from .utils import generate_activation_code, send_activation_email
-
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 class CustomUser(UserManager):
     use_in_migrations = True
@@ -55,13 +52,6 @@ class User(AbstractUser):
 
     def has_perm(self, obj) -> bool:
         return self.is_staff
-
-    
-    def set_activation_code(self):
-        code = generate_activation_code()
-        self.activation_code = code
-        self.save()
-        send_activation_email(self)
 
     
    

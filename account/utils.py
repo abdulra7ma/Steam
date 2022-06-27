@@ -1,9 +1,9 @@
-from webbrowser import get
 from django.contrib.auth import get_user_model
 from steam.celery import app
+from django.core.mail import send_mail
 
 User = get_user_model()
-from django.core.mail import send_mail
+
     
 @staticmethod
 def generate_activation_code():
@@ -20,7 +20,6 @@ def set_activation_code(user):
 
 @app.task
 def send_activation_email(user):
-    print(user.email)
     activation_url = f'http://localhost:8000/account/activate/{user.activation_code}/'
     message = f'''
             Thank you for signing up
@@ -40,7 +39,7 @@ def send_activation_email(user):
 @app.task
 def send_login(user):
     login_url = f'http://localhost:8000/account/login/'
-    message = 'you re logged in'
+    message = f'you re logged in{login_url}'
 
     send_mail(
         'Login',

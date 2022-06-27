@@ -125,7 +125,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# AUTH_USER_MODEL = 'account.User'
+AUTH_USER_MODEL = 'account.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -151,7 +151,6 @@ REST_FRAMEWORK = {
         
 
     ],
-    'USER_SERIALIZER': 'rest_friendship.serializers.FriendSerializer',
 
 }
     
@@ -210,3 +209,7 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Bishkek'
+
+
+#for chat
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)

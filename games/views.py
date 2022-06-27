@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework.response import Response
 from .serializers import GameSerializer, GameListSerializer
-from games.models import Game
+from games.models import Game, Favorite
 from rest_framework.decorators import action
 from rest_framework import permissions
 from .permissions import ReadOnly

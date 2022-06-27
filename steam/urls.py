@@ -33,6 +33,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+   path('messanger/', include('chat.urls')),
    path('account/', include('account.urls')),
    path('cart/', include('cart.urls')),
    path('api/', include(router.urls)),
