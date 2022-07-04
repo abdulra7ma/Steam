@@ -1,3 +1,4 @@
+from http import server
 from requests import Response
 from rest_framework import viewsets
 from rest_framework import generics
@@ -6,9 +7,11 @@ from .serializers import GameSerializer, GameListSerializer
 from games.models import Game, Favorite
 from rest_framework.decorators import action
 from rest_framework import permissions
-from .permissions import ReadOnly
 # from rest_framework import status
 from django.db.models import Q
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie, vary_on_headers
 
 
 
@@ -33,13 +36,23 @@ class GameViewSet(viewsets.ModelViewSet):
             return [permissions.IsAuthenticated(),]
 
 
-
     def get_queryset(self):
-        data = super().get_queryset()
-        search = self.request.query_params.get("search")
+        data =  super().get_queryset()
+        search = self.request.query_params.get('search')
         if search:
             data = data.filter(Q(title__icontains=search) | Q(category=search))
         return data
+
+
+        
+
+
+    # def get_queryset(self):
+    #     data = super().get_queryset()
+    #     search = self.request.query_params.get("search")
+    #     if search:
+    #         data = data.filter(Q(title__icontains=search) | Q(category=search))
+    #     return data
 
     
     @action(detail=True, methods=['GET'])

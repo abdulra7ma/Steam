@@ -1,34 +1,35 @@
 from django.db import models
+from djmoney.models.fields import MoneyField
 
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
 class Category(models.Model):
-    title= models.CharField(max_length=50)
+    title= models.TextField(max_length=50)
 
     def __str__(self) -> str:
-        return self.title
+        return str(self.title)
 
 
 class Platform(models.Model):
     title = models.CharField(max_length=50)
 
     def __str__(self) -> str:
-        return self.title
+        return str(self.title)
 
 
 class Raiting(models.Model):
     title = models.CharField(max_length=50)
 
     def __str__(self) -> str:
-        return self.title
+        return str(self.title)
 
 
 class Game(models.Model):
     title = models.CharField(max_length=100)
     desc = models.TextField(blank=True)
-    price = models.IntegerField()
+    price = MoneyField(max_digits=12, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='products', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
