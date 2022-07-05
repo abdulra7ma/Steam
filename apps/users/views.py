@@ -12,8 +12,9 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.authtoken.models import Token
+from users.models import User
 
-User = get_user_model()
+# User = get_user_model()
 
 
 

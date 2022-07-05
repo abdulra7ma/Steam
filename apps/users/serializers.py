@@ -3,9 +3,10 @@ from django.contrib.auth import get_user_model, password_validation
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from users.models import Expenses, Follower
 from .utils import send_activation_email, set_activation_code
+from users.models import User
 # from djmoney.contrib.django_rest_framework import MoneyField
 
-User = get_user_model()
+# User = get_user_model()
 
 
 #USER SERIALIZER

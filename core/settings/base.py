@@ -28,12 +28,13 @@ STATIC_ROOT = join(
 
 # look for templates here
 # This is an internal setting, used in the TEMPLATES directive
-PROJECT_TEMPLATES = [
-    join(
-        PROJECT_ROOT,
-        "templates",
-    ),
-]
+PROJECT_TEMPLATES = join(
+    PROJECT_ROOT,
+    "templates",
+)
+
+# leading slash
+APPEND_SLASH = False
 
 # collect media files here
 MEDIA_ROOT = join(

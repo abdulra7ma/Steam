@@ -1,8 +1,9 @@
 from django.db import models
 from games.models import Game
 from django.contrib.auth import get_user_model
+from users.models import User
 
-User = get_user_model()
+# User = get_user_model()
 
 
 class OrderItem(models.Model):

@@ -4,5 +4,5 @@ from django.apps import AppConfig
 class AccountConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'users'
-    label = 'any_unique_name'
+    # label = 'any_unique_name'
 

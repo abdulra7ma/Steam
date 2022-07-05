@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 
 from .models import Expenses
 
-User = get_user_model()
+# User = get_user_model()
 
-admin.site.register(User)
+# admin.site.register(User)
 admin.site.register(Expenses)

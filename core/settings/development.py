@@ -10,13 +10,17 @@ USER_ONLINE_TIMEOUT = 300
 
 # #####  DATABASE CONFIGURATION ############################
 DATABASES = {
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": "huilo",
+    #     "USER": "khasan",
+    #     "PASSWORD": "1",
+    #     "HOST": "localhost",
+    #     "PORT": 5432,
+    # }
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "huilo",
-        "USER": "khasan",
-        "PASSWORD": "1",
-        "HOST": "localhost",
-        "PORT": 5432,
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": join(PROJECT_ROOT, "run", "dev.sqlite3"),
     }
 }
 
