@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from steam.celery import app
+from core.celery import app
 from django.core.mail import send_mail
 
 

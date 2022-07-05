@@ -3,7 +3,7 @@ from django.contrib.auth.models import UserManager, AbstractUser
 from django.core.mail import send_mail
 from djmoney.models.fields import MoneyField
 from djmoney.money import Money
-from steam.celery import app
+from core.celery import app
 
 
 
